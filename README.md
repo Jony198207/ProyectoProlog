@@ -1,19 +1,22 @@
 # Prolog: Operaciones con polinomios.
 
-Código del un proyecto de polinomios en Prolog, así como la descripción en el documento README del mismo.
+Si bien la manipulación de polinomios puede ser una labor fácil, su manejo se complica conforme crece el grado de estas expresiones matemáticas.
+Debido a esto es que desarrollamos un programa capaz de **crear, sumar, multiplicar, evaluar y hacer combinatoria de polinomios**.
 
-##Inicializar el proyecto
+Para hacer uso de 
+
+## Inicializar el proyecto
 
 Describir aquí como se inicializa la aplicación y el proyecto, así como la terminal para empezar a usar la herramienta.
 
-##Crear polinomios 
+## Crear polinomios 
 
-##Sumar
+## Sumar
 
-##Multiplicar
+## Multiplicar
 
-##Evaluar
+## Evaluar
 
-#Combinatoria
+# Combinatoria
 
-##Posibles errores de ejecución (QUIZÁ)
+## Posibles errores de ejecución (QUIZÁ)
