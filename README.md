@@ -15,6 +15,8 @@ Para usar el código sigue estos pasos:
   ![Imágen3](https://github.com/179786-moises/imagen/blob/main/B3.jpeg)
 
    Finalmente, escribe la sentencia 'maini', lo que inicializará el programa y te desplegará un menú de opciones de posibles operaciones de polinomios.
+   ![image](https://user-images.githubusercontent.com/101894380/159102602-e9dc22f7-b1d0-44e8-aa49-48c68f4a07ac.png)
+
 ## Crear polinomios 
 Debe ser la primera acción a ejecutar, pues si no existen polinomios creados, no podrás realizar ninguna operación.
 
