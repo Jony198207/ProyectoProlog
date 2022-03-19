@@ -14,12 +14,14 @@ Para usar el código sigue estos pasos:
    Se mostrará una pantalla como la siguiente, con la que sabrás que la compilación del programa se ejecutó correctamente:
   ![Imágen3](https://github.com/179786-moises/imagen/blob/main/B3.jpeg)
 
-   Finalmente, escribe la sentencia 'maini', lo que inicializará el programa y te desplegará un menú de opciones de posibles operaciones de polinomios.
+   Finalmente, escribe la sentencia `maini`, lo que inicializará el programa y te desplegará un menú de opciones de posibles operaciones de polinomios.
    ![image](https://user-images.githubusercontent.com/101894380/159102602-e9dc22f7-b1d0-44e8-aa49-48c68f4a07ac.png)
 
 ## Crear polinomios 
 Debe ser la primera acción a ejecutar, pues si no existen polinomios creados, no podrás realizar ninguna operación.
-
+Cronstructor(A,B). Dónde A es el coeficiente del polinomio y B es el grado y esta formado por el siguiente codigo:
+![Cosntructor](https://github.com/179786-moises/imagen/blob/main/Constructor.png)
+Sigueindo con la forma de programación de Prolog este código es recursivo y sus condiciones están definidas por otros constructores como "poli". Está diseñado para crear una lista en la cúal se ponga 0 en todos los lugares en los que no hay constante y A en el lugar del valor de B.
 
 ## Sumar
 
