@@ -1,0 +1,296 @@
+:-dynamic(constructor/2).
+%polinomio(coef, grado, contador, polinomio en formato de lista)
+poli(A,B,B,[A]):-!.
+%polinomio([A]):-!.
+
+/*polinomio(A,B,B,Lista):-
+    polinomio(A,B,B,[A|Lista]).*/
+/*Cuando el contador alcanza el tamaño de B es cuando agregamos el coeficiente A en la lista*/
+
+poli(A,B,X,[Y|Lista]):-
+    X =\= B,
+    X1 is X+1,
+    Y is 0,
+    poli(A,B,X1, Lista). /*Aumentamos el contador que es X*/
+
+polinomio(Pol):-!.
+constructor(A,B):-
+    poli(A,B, 0, Pol),
+        write(Pol),!.
+
+%El metodo suma recibe los polinomios a sumar
+suma(polinomio(Pol1), polinomio(Pol2),Res):-
+     sumaM(Pol1, Pol2, Res),
+     %sumaM recibe dos listas
+     %cada lista representa un polinomio
+
+     polinomio(Res),
+     %Res también será un polinomio
+     write(Res),!.
+%Metodo sumaM recibe dos listas que
+%representan los polinomios a sumar
+sumaM([], [], []):-!.
+sumaM([], Pol2, Pol2):-!.
+sumaM(Pol1, [], Pol1):-!.
+
+sumaM([X|Y], [W|Z], [Sum|Lista]):-
+    Sum is X+W,
+    sumaM(Y,Z, Lista).
+
+resta(polinomio(Pol1), polinomio(Pol2),Res):-
+     restaM(Pol1, Pol2, Res),
+     polinomio(Res),
+     write(Res),!.
+restaM([],[],[]):-!.
+restaM(Pol1,[],Pol1):-!.
+restaM([],[W|Z],[Res|Lista]):-
+    Res is W*(-1),
+    restaM([],Z,Lista).
+
+restaM([X|Y],[W|Z],[Res|Lista]):-
+    Res is (X-W),
+    restaM(Y,Z,Lista).
+
+grado(polinomio(Pol)):-
+    gradoM(Pol,Cont),
+    write(Cont),!.
+
+gradoM([],-1):-!.
+gradoM([X|Y], Cont):-
+    gradoM(Y, Cont2),
+    Cont is Cont2 +1, !.
+deriva([]):-
+    polinomio([]),
+    write([]),!.
+deriva([X]):-
+    polinomio([0]),
+    write([0]),!.
+
+deriva([X|Y],Res):-
+    derivaM(Y,1, Res),
+    polinomio(Res),
+    write(Res),!.
+derivaM([], Grado, []):-!.
+
+derivaM([X|Y], Grado, [Coef|Lista]):-
+    Coef is X*Grado,
+    Gr2 is Grado + 1,
+    derivaM(Y,Gr2,Lista), !.
+evaluate(polinomio(Pol), X):-
+    evaluateM(Pol,X, Res),
+    write(Res).
+%evaluateM(polinomio, X, grado, resultado)
+evaluateM([],_,0):-!.
+
+evaluateM([W|Z],X,Res):-
+     evaluateM(Z,X, Res1),
+     Res is (Res1*X + W).
+/*compose1(polinomio(Pol1), polinomio(Pol2)):-
+    composeM1(Pol1, Pol2, Res),
+    polinomio(Res),
+    write(Res).
+composeM1(Pol, [], Pol):-!.
+composeM1(Pol, [N], Res):-
+    evaluate(Pol, N, Res).
+*/
+
+composeM([X|Y], [W|Z], Res):-!.
+
+
+multiplicacion(polinomio(Pol1),polinomio(Pol2),Res):-
+    gradoM(Pol1,Grad1),
+    gradoM(Pol2,Grad2),
+    Gr3 is Grad1 + Grad2,
+    poli(0,Gr3, 0, Pol3),
+
+    /* Se crea Pol3 que es una lista de largo Gr3+1
+    * que va a estar llena de 0´s
+    * y sobre esa lista se van a agregatr los coeficientes
+    */
+    multi(Pol1, Pol2,Pol2,0, 0,Pol3,Res),
+    polinomio(Res),!.
+
+multi([], [],_,_,_,_, []):-!.
+multi([],Pol2,_,_,_,Pol3,Pol3):-!.
+multi([X|Y],[],_,_,_,Pol3,Pol3):-!.
+
+multi([X|Y],[W|Z],Pol2,Grad1,Cont, Pol3,Resultado):-
+   multAux([X|Y],[W|Z], Grad1, Cont, Pol3, Pol3Nuevo),
+   Gr1 is Grad1 +1,
+   multi(Y,[W|Z],Pol2,Gr1,0,Pol3,Res),
+   sumaM(Pol3Nuevo,Res,Resultado).
+
+multAux(_,[],_,_,Pol3,Pol3):-!.
+multAux([],_,_,_,Pol3,Pol3):-!.
+
+multAux([X|Y], [W|Z], Gr1, Gr2, Pol3, Pol3Nuevo):-
+        Gra2 is Gr2 +1,
+        multAux([X|Y],Z,Gr1,Gra2,Pol3,Res),
+        Grado is Gr1 + Gr2,
+        llenaCoef(X,W,Grado,0,Res,Pol3Nuevo).
+
+llenaCoef(Coef1, Coef2, Grado, Grado, [X|Y],[Res|Y]):-
+        Res is ((Coef1*Coef2)+X),!.
+
+llenaCoef(Coef1, Coef2, Grado, Cont, [X|Y], [X|Lista]):-
+    Cont1 is Cont +1,
+    llenaCoef(Coef1, Coef2, Grado, Cont1, Y, Lista),
+   !.
+coeficienteM([X|[]],N):-!,write(N).
+coeficienteM([X|Y],N):-
+    X == 0,
+    N1 is N+1,
+    coeficienteM(Y,N1).
+coeficiente(Lista):-
+    coeficienteM(Lista,0).
+
+composeM([X|[]],[X1|Y1],Grado1,Grado2,Coeficiente):-
+    GradoAux is Grado1,
+    GradoAux2 is Grado2,
+    composeM([X],Y1,GradoAux,GradoAux2,Coeficiente).
+composeM([X|Y],[X1|[]],Grado1,Grado2,Coeficiente):-
+    GradoAux is Grado1+1,
+    GradoAux2 is Grado2,
+    composeM(Y,[X1],GradoAux,GradoAux2,Coeficiente).
+
+composeM([X|[]],[Y|[]],Grado1,Grado2,Coeficiente):-
+    Coeficiente is X*Y,
+    Grado is Grado1+   Grado2,
+    constructor(Coeficiente,Grado),!.
+composeM([X|Y],[X1|Y1],Grado1,Grado2,Coeficiente):-
+    GradoAux is Grado1+1,
+    GradoAux2 is Grado2+1,
+    composeM(Y,Y1,GradoAux,GradoAux2,Coeficiente).
+compose(Lista,Lista2):-
+    composeM(Lista,Lista2,0,0,Coeficiente).
+
+toStringM([],N):-!.
+toStringM([X|Y],0):-
+    X =\=0,
+    N1 is 1,
+    write(" "),write(X),write(" "),
+    toStringM(Y,N1).
+toStringM([X|Y],N):-
+    X>0,
+    N1 is N+1,
+    write(" + "),write(X),write("x^"),write(N),
+    toStringM(Y,N1).
+toStringM([X|Y],N):-
+    X<0,
+    N1 is N+1,
+    write(" "),write(X),write("x^"),write(N),
+    toStringM(Y,N1).
+
+toStringM([X|Y],N):-
+    X ==0,
+    N1 is N+1,
+    toStringM(Y,N1).
+
+toString(Lista):-
+    toStringM(Lista,0).
+
+
+input("C"):-
+    write("Valor de A"),
+    read(A),
+    write("Valor de B"),
+    read(B),
+    constructor(A,B),nl,
+    Nuevo=constructor(A,B),
+    asserta(Nuevo).
+input("Suma"):-
+    write("Polinomio 1"),nl,
+    write("Valor de A"),
+    read(A),
+    write("Valor de B"),
+    read(B),
+
+    write("Polinomio 2"),
+    write("Valor de A"),
+    read(A1),
+    write("Valor de B"),
+    read(B1),
+    write("suma :"),constructor(A,B),write(" + "),constructor(A1,B1),nl,
+    write(" = "),suma(polinomio(constructor(A,B)),polinomio(constructor(A1,B1))),
+    Nuevo=constructor(A,B),
+    Nuevo1=constructor(A1,B1),
+    asserta(Nuevo),
+    asserta(Nuevo1).
+input("-"):-
+    write("Valor de A"),
+    read(A),
+    write("Valor de B"),
+    read(B),
+    Nuevo=constructor(A,B),
+    asserta(Nuevo).
+
+
+maini:-
+    write("Escribe que operacion quieres hacer"),
+    write("Crear polinomio: C "),nl,
+    write("Sumar polinomio: Suma "),nl,
+    write("Restar polinomio: - "),nl,
+    write("Multiplicar polinomio: * "),nl,
+    write("Derivar Polinomio: D "),nl,
+    read(X),
+    input(X),
+    maini.
+maini2:-
+    %Aquí creamos el polinomio de ceros y lo imprimimos.
+    write("zeros de x son:"),
+    constructor(0,0),
+    toString(Ceros),nl,nl,
+
+    %Aquí creamos el polinomio P
+    %primer valor es el coeficiente, el segudno es el grado, el tercero es el contador, y el último es la lista resultante
+    poli(4,3,0,P1),
+    poli(3,2,0,P2),
+    poli(1,0,0,P3),
+    poli(2,1,0,P4),
+    suma(polinomio(P1),polinomio(P2),Res1),
+    suma(polinomio(P3),polinomio(Res1),Res2),
+    suma(polinomio(P4),polinomio(Res2),P),
+    write("el polinomio p es : "),
+    toString(P),nl,nl,
+
+    %Aquí creamos el polinomio q, siguiendo los mismos pasos que el p
+    poli(3,2,0,Q1),
+    poli(5,0,0,Q2),
+    suma(polinomio(Q1),polinomio(Q2),Q),nl,
+    write("el polinomio q es: "),
+    toString(Q),nl,
+
+    %Aquí hacemos la suma de p y q
+    write("la suma de p y q es : "),
+    suma(polinomio(Q),polinomio(P),R),
+    toString(R),nl,nl,
+
+    %Aquí hacemos la multipliacción de p y q
+    multiplicacion(polinomio(P),polinomio(Q),S),nl,
+    write("la multiplicación de p y q es : "),
+    toString(S),nl,nl,
+
+    %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    %este no jala
+    write("yyyyyyyyyyyyyyyyyyyy"),nl,
+    compose(P,Q),nl,nl,
+
+    %Aquí hacemos la operación de 0 - p(x)
+    poli(0,0,0,Cer),nl,
+    write("la resta de 0 y p da :"),
+    resta(polinomio(Cer),polinomio(P),Resp),
+    toString(Resp),nl,nl,
+
+    %Aquí evalua la función en 3, el primer argumento es el polinomio y el segundo es lo que evaluamos
+    write("evaluando 3 en p : "),
+    evaluate(polinomio(P),3),nl,nl,
+
+    %Aquí hacemos la primer derivada de la función p, el primer argumento es el polinomio a derivar y el segundo es el polinomi derivado
+    write("la derivada de p es :"),
+    deriva(P,HH),
+    toString(HH),nl,nl,
+
+    %Aquí sacamos la segunda derivada, funciona igual que el deriva de arriba
+    write("la segunda derivada de p es : "),
+    deriva(HH,JJ),
+    toString(JJ).
