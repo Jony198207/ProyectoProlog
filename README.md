@@ -6,19 +6,14 @@ Puedes encontrar el código de este programa [aquí](https://github.com/Jony1982
 
 ## Inicializar el proyecto
 
-Para usar el código sigue pasos:
-1) Inicializa Prolog. Una vez abierto, dirigete a la pestaña "file" y haz click en exit.
+Para usar el código sigue estos pasos:
+1) Inicializa Prolog. Una vez abierto, dirigete a la pestaña "File" y haz click en exit.
 ![Imagen1](https://github.com/179786-moises/imagen/blob/main/B1.jpeg)
-Luego vas a tener dos decisiones:
-  1) la primera va a ser si solo quieres usar el código sin tener que modificarlo, lo vas a poder hacer de la siguiente manera:
-![Imágen2](https://github.com/179786-moises/imagen/blob/main/B2.jpeg)
-    Y el resultado va a ser:
-![Imágen3](https://github.com/179786-moises/imagen/blob/main/B3.jpeg)
-  2) si quieres editarlo, entonces:
-![Imágen4](https://github.com/179786-moises/imagen/blob/main/B4.jpeg)
-      tu resultado será:
- ![Imágen5](https://github.com/179786-moises/imagen/blob/main/B5.jpeg)
 
+2) Después, clickea nuevamente en "File", "consult" y selecciona el archivo previamente descargado que contiene el código:
+![Imágen2](https://github.com/179786-moises/imagen/blob/main/B2.jpeg)
+Y el resultado va a ser:
+![Imágen3](https://github.com/179786-moises/imagen/blob/main/B3.jpeg)
 
 ## Crear polinomios 
 
