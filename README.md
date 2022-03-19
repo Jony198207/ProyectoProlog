@@ -16,6 +16,6 @@ Describir aquí como se inicializa la aplicación y el proyecto, así como la te
 
 ## Evaluar
 
-# Combinatoria
+## Combinatoria
 
-# Posibles errores de ejecución (QUIZÁ)
+## Posibles errores de ejecución (QUIZÁ)
