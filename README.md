@@ -6,8 +6,8 @@ Puedes encontrar el código de este programa [aquí](https://github.com/Jony1982
 
 ## Inicializar el proyecto
 
-para empezar a usar el código necesitas sigue pasos:
-a) depués de haber abieto Prolog pararse en la pestaña de file y hacer click en esta.
+Para usar el código sigue pasos:
+1) Inicializa Prolog. Una vez abierto, dirigete a la pestaña "file" y haz click en exit.
 ![Imagen1](https://github.com/179786-moises/imagen/blob/main/B1.jpeg)
 Luego vas a tener dos decisiones:
   1) la primera va a ser si solo quieres usar el código sin tener que modificarlo, lo vas a poder hacer de la siguiente manera:
