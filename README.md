@@ -7,10 +7,8 @@ Puedes encontrar el código de este programa [aquí](https://github.com/Jony1982
 ## Inicializar el proyecto
 
 Para usar el código sigue estos pasos:
-1) Inicializa Prolog. Una vez abierto, dirigete a la pestaña "File" y haz click en exit.
-![Imagen1](https://github.com/179786-moises/imagen/blob/main/B1.jpeg)
 
-2) Después, clickea nuevamente en "File", "consult" y selecciona el archivo previamente descargado que contiene el código:
+1) Haz click en "File", seguido de "consult" y selecciona el archivo previamente descargado que contiene el código:
 ![Imágen2](https://github.com/179786-moises/imagen/blob/main/B2.jpeg)
 
 Se mostrará una pantalla como la siguiente, con la que sabrás que la compilación del programa se ejecutó correctamente y puedes utilizar las funciones programadas:
