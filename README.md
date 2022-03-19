@@ -18,20 +18,27 @@ Para usar el código sigue estos pasos:
    ![image](https://user-images.githubusercontent.com/101894380/159102602-e9dc22f7-b1d0-44e8-aa49-48c68f4a07ac.png)
 
 ## Crear polinomios 
-Como se muestra en la imagen anterior, en el menú de opciones para crear un polinomio debes escribir la letra *C*. **Es imperativo que esta sea la primera acción a ejecutar**, pues si no existen polinomios creados en el sistema, no podrás realizar ninguna operación.
 
-Esta función trabaja mediante listas, asociando los coeficientes en orden descendente con la incognita y su respectivo grado según la secuencia en la que se ingresan los datos. Si ingresamos simplemente el valor *15*, el sistema lo tomará como un **monomio de grado cero, es decir, como una constante**. En cambio, si generamos una lista de coeficientes, el resultado será un polinomio con esas variables.
+Como se muestra en la imagen anterior, en el menú de opciones para crear un polinomio debes escribir la letra `C`. **Es imperativo que esta sea la primera acción a ejecutar**, pues si no existen polinomios creados en el sistema, no podrás realizar ninguna operación.
+
+Esta función trabaja mediante listas proporcionadas por el usuario, asociando los coeficientes en orden descendente con la incognita y su respectivo grado según la secuencia en la que se ingresan los datos, por lo que la consola te solicitará una lista de coeficientes para crear un polinomio. Si ingresas simplemente el valor *15*, el sistema lo tomará como un **monomio de grado cero, es decir, como una constante**. En cambio, si generas una lista de coeficientes, el resultado será un polinomio con esas variables.
 
 Por ejemplo: 
 Si la lista es **[8,7,6,5,4]**, el polinomio que el sistema reconocerá y con el que posteriormente podremos hacer operaciones será:
                                     ![image](https://user-images.githubusercontent.com/101894380/159103921-39d9280b-77e3-4651-a90f-b510674e821d.png).
+
 Ahora bien, si el polinomio que deseas crear no es completo, es decir, no contiene todos los grados de n hasta 0, puedes crearlo con el uso de ceros. Por ejemplo:
 
- **[4,3,0,0,1]** ------------->  ![image](https://user-images.githubusercontent.com/101894380/159104133-5f5008ee-068e-41ff-bf25-6575785e69e3.png)
 
-
+**[4,3,0,0,1]** ------------->   ![image](https://user-images.githubusercontent.com/101894380/159104133-5f5008ee-068e-41ff-bf25-6575785e69e3.png)
 
 ## Sumar
+
+Para poder hacer uso de esta función deberás haber creado previamente dos polinomios y, acto seguido, escribir en la consola el comando `Suma`, para indicar que queremos sumar dichos polinomios.  
+
+![Suma](https://github.com/179786-moises/imagen/blob/main/Suma.png)
+Su código funciona e manera que necesitas meter dos polinomios y este va a ir sumando de manera recursiva cada valor de las listas hasta que las dos se hayan acabado o alguna sea una lista vacia en cuyo caso slo agrega todos los valores que faltan.
+
 
 ## Multiplicar
 
@@ -40,3 +47,5 @@ Ahora bien, si el polinomio que deseas crear no es completo, es decir, no contie
 ## Derivar
 
 ## Posibles errores de ejecución (QUIZÁ)
+
+Si intentas 
