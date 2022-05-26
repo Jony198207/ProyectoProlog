@@ -41,7 +41,8 @@ Ahora bien, si el polinomio que deseas crear no es completo, es decir, no contie
 
 **[4,3,0,0,1]** ------------->   ![image](https://user-images.githubusercontent.com/101894380/159104133-5f5008ee-068e-41ff-bf25-6575785e69e3.png)
 
-### Sumar
+
+## Sumar
 
 Para poder hacer uso de esta función deberás haber creado previamente dos polinomios y, acto seguido, escribir en la consola el comando `Suma` para indicar que queremos sumar dichos polinomios. De esta manera, para realizar una operación de este tipo tendríamos una secuencia como la siguiente:
 
@@ -49,11 +50,13 @@ Para poder hacer uso de esta función deberás haber creado previamente dos poli
 
 Como se muestra en la imágen anterior, funciona de tal manera que suma todos aquellos elementos del mismo grado y, sí existe un elemento de grado *j* en un polinomio pero no en el otro, simplemente reporta el elemento existente.
 
-### Restar
+
+## Restar
 
 Al escribir en la consola `-` podrás utilizar esta función. Una resta puede entenderse como una suma, pues `A - B` = `A + (-B)`. Debido a ello es que tanto la lógica como el código son analogós a los de la suma. Por tanto, la secuencia a seguir para solicitar a la consola la resta de dos polinomios sería la misma que en la suma, intercambiando el comando de `Suma` por el de `-`.
 
-### Multiplicar
+
+## Multiplicar
 
 Se seleciona con la sentencia  `*`. A diferencia de la suma o la resta, la multiplicación no opera solamente entre elementos del mismo grado. Toma el primer elemento del primer polinomio que se creó y lo multiplica por todos los elementos del segundo, después repite este proceso recursivamente hasta que el primer polinomio termina con los elementos que lo constituyen.
 
@@ -62,7 +65,8 @@ Internamente toma los polinomios que se le indica se quiere multiplicar y funcio
 
 Es decir, toma como argumentos el polinomio **P** y **Q**, realiza la multiplicación entre ellos y guarda el resultado en **S** para posteriormente mostrarlo en la pantalla de la consola.
 
-### Derivar
+
+## Derivar
 
 Para esta función sólo es necesario porporcionar a la consola un polinomio (si se tienen 2, Prolog te solicitará que vuelvas a ingresar los coeficientes del polinomio de tu elección), del cual nos devolverá su respectiva derivada.
 Por ejemplo, si ingresas este polinomio:
@@ -72,6 +76,7 @@ Por ejemplo, si ingresas este polinomio:
 Y, posteriormente escribes en el menú el comando  `D`, obtendrás como respuesta la primera derivada:
 
 ![image](https://user-images.githubusercontent.com/101894380/159107352-b995529e-f679-4b88-9f9e-77b6414e8d05.png)
+
 
 ## Posibles errores de ejecución 
 
