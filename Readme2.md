@@ -20,10 +20,10 @@ Para usar el código sigue estos pasos:
 1) Haz click en "File", seguido de "consult" y selecciona el archivo previamente descargado que contiene el código:
 ![Imágen2](https://github.com/179786-moises/imagen/blob/main/B2.jpeg)
 
-   Se mostrará una pantalla como la siguiente, con la que sabrás que la compilación del programa se ejecutó correctamente:
+2) Se mostrará una pantalla como la siguiente, con la que sabrás que la compilación del programa se ejecutó correctamente:
   ![Imágen3](https://github.com/179786-moises/imagen/blob/main/B3.jpeg)
 
-   Finalmente, escribe la sentencia `maini`, lo que inicializará el programa y te desplegará el menú de opciones de las operaciones que podrás realizar.
+3) Finalmente, escribe la sentencia `maini`, lo que inicializará el programa y te desplegará el menú de opciones de las operaciones que podrás realizar.
    ![image](https://user-images.githubusercontent.com/101894380/159102602-e9dc22f7-b1d0-44e8-aa49-48c68f4a07ac.png)
 
 ## Crear polinomios 
